@@ -22,6 +22,7 @@ paths:
           required: false
           schema:
             type: string
+            pattern: "^(http|https)://.*"
       responses:
         200:
           description: Request accepted.
@@ -29,6 +30,31 @@ paths:
             application/json:
               schema:
                 type: string
-
+        400:
+          description: Request malformed.
+        406:
+          description: Proceeding failed. Hint - Endpoint not reachable
+    post:
+      summary: Accept request.
+      operationId: postAccept
+      tags:
+        - verve
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - id
+              properties:
+                id:
+                  type: integer
+      responses:
+        200:
+          description: Request accepted.
+          content:
+            application/json:
+              schema:
+                type: string
         400:
           description: Request malformed.

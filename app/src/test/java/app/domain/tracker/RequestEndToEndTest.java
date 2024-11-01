@@ -21,7 +21,7 @@ import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 @SpringBootTest(
-        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
+        webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT,
         classes = Application.class
 )
 @AutoConfigureMockMvc
@@ -53,6 +53,7 @@ public class RequestEndToEndTest {
         mockMvc.perform(
                         get("/verve/accept")
                                 .param("id", id)
+                                .param("endpoint", "http://127.0.0.1:8080/verve/accept")
                 )
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string("ok"));
@@ -63,6 +64,20 @@ public class RequestEndToEndTest {
                 )
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string("ok"));
+    }
+
+    @Test
+    void whenGetAcceptWithEndpointMalFormed_ThenStatus406() throws Exception {
+        // setup
+        val id = "2623624";
+
+        // then
+        mockMvc.perform(
+                        get("/verve/accept")
+                                .param("id", id)
+                                .param("endpoint", "http://blub")
+                )
+                .andExpect(MockMvcResultMatchers.status().isNotAcceptable());
     }
 
     @Test

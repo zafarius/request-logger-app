@@ -12,6 +12,7 @@ dependencies {
     implementation(project(":common:domain"))
 
     implementation(libs.spring.boot.starter.web)
+    implementation(libs.jakarta.validation)
 
     testImplementation(libs.junit.jupiter)
     testImplementation(libs.spring.boot.starter.test)
