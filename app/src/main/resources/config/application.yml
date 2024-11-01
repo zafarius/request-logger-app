@@ -1,0 +1,51 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    default: local
+  session:
+    timeout: 10m
+  h2:
+    console:
+      enabled: true
+  jta:
+    atomikos:
+      datasource:
+        min-pool-size: 5
+        max-pool-size: 20
+      properties:
+        enable-logging: false
+        log-base-name: VAULT_XA
+        log-base-dir: /application/data/jta
+
+    enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate.hbm2ddl.auto: validate
+      hibernate.connection.charSet: UTF-8
+      hibernate.format_sql: true
+      hibernate.use_sql_comments: false
+      hibernate.generate_statistics: true
+      hibernate.id.new_generator_mappings: true
+      hibernate.globally_quoted_identifiers: true
+      hibernate.jdbc.batch_size: 100
+      hibernate.order_inserts: true
+      hibernate.order_updates: true
+      hibernate.connection.handling_mode: DELAYED_ACQUISITION_AND_RELEASE_AFTER_STATEMENT
+  datasource:
+    url: jdbc:h2:mem:vault;DB_CLOSE_ON_EXIT=FALSE
+    driverClassName: org.h2.Driver
+    username: root
+    password: vault
+logging:
+  level:
+    com:
+      atomikos: DEBUG
+files:
+  output_dir: "/tmp"

@@ -1,0 +1,34 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: verve
+servers:
+  - url: http://localhost:8080/v1
+paths:
+  /verve/accept:
+    get:
+      summary: Accept request.
+      operationId: getAccept
+      tags:
+        - verve
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: endpoint
+          required: false
+          schema:
+            type: string
+      responses:
+        200:
+          description: Request accepted.
+          content:
+            application/json:
+              schema:
+                type: string
+
+        400:
+          description: Request malformed.
