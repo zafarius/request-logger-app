@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # Envs for spring test setup
-      SPRING_PROFILES_ACTIVE: production,production-test
+      SPRING_PROFILES_ACTIVE: production
       JDBC_HOST: localhost
       JDBC_PORT: 5432
       JDBC_DATABASE: ${{ vars.JDBC_DATABASE }}
