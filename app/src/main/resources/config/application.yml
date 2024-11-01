@@ -16,7 +16,7 @@ spring:
         max-pool-size: 20
       properties:
         enable-logging: false
-        log-base-name: VAULT_XA
+        log-base-name: APP_XA
         log-base-dir: /application/data/jta
 
     enabled: true
@@ -39,13 +39,11 @@ spring:
       hibernate.order_updates: true
       hibernate.connection.handling_mode: DELAYED_ACQUISITION_AND_RELEASE_AFTER_STATEMENT
   datasource:
-    url: jdbc:h2:mem:vault;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:mem:app;DB_CLOSE_ON_EXIT=FALSE
     driverClassName: org.h2.Driver
     username: root
-    password: vault
+    password: app
 logging:
   level:
     com:
       atomikos: DEBUG
-files:
-  output_dir: "/tmp"

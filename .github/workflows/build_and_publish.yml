@@ -19,7 +19,6 @@ jobs:
       JDBC_PASSWORD: ${{ secrets.JDBC_PASSWORD }}
       JDBC_CONNECTION_POOL_MIN: 5
       JDBC_CONNECTION_POOL_MAX: 20
-      FILES_OUTPUT_DIR: /tmp/test
       PGPASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
     # Service containers to run with `runner-job`
     services:

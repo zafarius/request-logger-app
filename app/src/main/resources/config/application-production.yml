@@ -32,5 +32,3 @@ logging:
     app: WARN
     com:
       atomikos: ERROR
-files:
-  output_dir: ${FILES_OUTPUT_DIR}
