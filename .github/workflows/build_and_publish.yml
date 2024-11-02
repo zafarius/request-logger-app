@@ -14,13 +14,18 @@ jobs:
       SPRING_PROFILES_ACTIVE: production
       JDBC_HOST: localhost
       JDBC_PORT: 5432
-      ARTEMIS_MODE: EMBEDDED
       JDBC_DATABASE: ${{ vars.JDBC_DATABASE }}
       JDBC_USERNAME: ${{ vars.JDBC_USERNAME }}
       JDBC_PASSWORD: ${{ secrets.JDBC_PASSWORD }}
       JDBC_CONNECTION_POOL_MIN: 5
       JDBC_CONNECTION_POOL_MAX: 20
       PGPASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+      ARTEMIS_MODE: EMBEDDED
+      JMS_CONNECTION_POOL_MAX: 50
+      JMS_USERNAME: artemis
+      JMS_PASSWORD: artemis
+      JMS_HOST: localhost
+      JMS_PORT: 61616
     # Service containers to run with `runner-job`
     services:
       # Label used to access the service container
