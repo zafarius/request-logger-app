@@ -14,6 +14,7 @@ jobs:
       SPRING_PROFILES_ACTIVE: production
       JDBC_HOST: localhost
       JDBC_PORT: 5432
+      ARTEMIS_MODE: EMBEDDED
       JDBC_DATABASE: ${{ vars.JDBC_DATABASE }}
       JDBC_USERNAME: ${{ vars.JDBC_USERNAME }}
       JDBC_PASSWORD: ${{ secrets.JDBC_PASSWORD }}

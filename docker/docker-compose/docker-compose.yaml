@@ -36,8 +36,15 @@ services:
       JDBC_USERNAME: app-user
       JDBC_PASSWORD: vaultMaster123
       JDBC_CONNECTION_POOL_MIN: 5
-      JDBC_CONNECTION_POOL_MAX: 20
+      JDBC_CONNECTION_POOL_MAX: 50
+      JMS_CONNECTION_POOL_MAX: 50
+      JMS_USERNAME: artemis
+      JMS_PASSWORD: artemis
+      JMS_HOST: localhost
+      JMS_PORT: 61616
+      ARTEMIS_MODE: NATIVE
     depends_on:
       - postgresql
+      - artemis
 volumes:
   data:
