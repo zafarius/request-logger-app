@@ -22,15 +22,9 @@ spring:
     username: ${JDBC_USERNAME}
     password: ${JDBC_PASSWORD}
   artemis:
-    mode: NATIVE
-    embedded:
-      enabled: false
+    mode: EMBEDDED
     pool:
       enabled: true
-      max-connections: ${JMS_CONNECTION_POOL_MAX}
-    brokerUrl: tcp://${JMS_HOST}:${JMS_PORT}?&reconnectAttempts=-1&retryIntervalMultiplier=1.0&blockOnNonDurableSend=false&blockOnDurableSend=true&clientFailureCheckPeriod=5000
-    user: ${JMS_USERNAME}
-    password: ${JMS_PASSWORD}
   sql:
     init:
       mode: never
@@ -43,7 +37,7 @@ logging:
     app: info
     org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: warn
     org.springframework.web: info
-    org.springframework.transaction: error
+    org.springframework.transaction: info
     org.apache.activemq: error
     com.atomikos: error
     org.hibernate.jpa.internal.util.LogHelper: info

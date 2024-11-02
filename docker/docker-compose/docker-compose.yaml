@@ -42,7 +42,6 @@ services:
       JMS_PASSWORD: artemis
       JMS_HOST: artemis
       JMS_PORT: 61616
-      ARTEMIS_MODE: NATIVE
     depends_on:
       - postgresql
       - artemis

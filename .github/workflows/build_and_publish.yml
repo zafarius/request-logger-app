@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # Envs for spring test setup
-      SPRING_PROFILES_ACTIVE: production
+      SPRING_PROFILES_ACTIVE: production-test
       JDBC_HOST: localhost
       JDBC_PORT: 5432
       JDBC_DATABASE: ${{ vars.JDBC_DATABASE }}
@@ -20,7 +20,6 @@ jobs:
       JDBC_CONNECTION_POOL_MIN: 5
       JDBC_CONNECTION_POOL_MAX: 20
       PGPASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-      ARTEMIS_MODE: EMBEDDED
     # Service containers to run with `runner-job`
     services:
       # Label used to access the service container
