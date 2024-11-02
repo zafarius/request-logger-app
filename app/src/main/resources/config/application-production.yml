@@ -29,6 +29,11 @@ spring:
       enabled: false
 logging:
   level:
-    app: WARN
-    com:
-      atomikos: ERROR
+    root: info
+    app: info
+    org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: warn
+    org.springframework.web: info
+    org.springframework.transaction: error
+    org.apache.activemq: error
+    com.atomikos.jdbc.AtomikosConnectionProxy: error
+    org.hibernate.jpa.internal.util.LogHelper: info

@@ -13,8 +13,16 @@ services:
       test: pg_isready -U vault-user -d vault
     environment:
       POSTGRES_PASSWORD: "change-me"
-  vault:
-    image: ghcr.io/zafarius/vault:0.1.0-snapshot
+  artemis:
+    image: apache/activemq-artemis:latest-alpine
+    restart: on-failure
+    ports:
+      - "8161:8161"
+      - "61616:61616"
+    volumes:
+      - "./data/artemis/:/var/lib/artemis-instance/etc-override"
+  app:
+    image: ghcr.io/zafarius/app:0.1.0-snapshot
     volumes:
       - data:/application/data:rw
     pull_policy: always
@@ -29,7 +37,6 @@ services:
       JDBC_PASSWORD: vaultMaster123
       JDBC_CONNECTION_POOL_MIN: 5
       JDBC_CONNECTION_POOL_MAX: 20
-      FILES_OUTPUT_DIR: /application/data
     depends_on:
       - postgresql
 volumes:

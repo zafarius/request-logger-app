@@ -1,5 +1,5 @@
 [versions]
-spring-boot = "3.3.3"
+spring-boot = "3.3.5"
 spring-web = "6.1.13"
 swagger-annotation = "2.2.22"
 junit-jupiter = "5.11.0"
@@ -20,6 +20,9 @@ jackson-core = "2.17.2"
 jakarta-servlet-api = "6.1.0"
 mapstruct = "1.6.0"
 awaitility = "4.2.2"
+jakarta-jms-api = "3.1.0"
+org-messaginghub-pooled-jms = "3.1.7"
+org-apache-activemq-server = "2.38.0"
 
 [libraries]
 spring-web = { module = "org.springframework:spring-web", version.ref = "spring-web" }
@@ -27,6 +30,7 @@ spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-start
 spring-boot-starter-security = { module = "org.springframework.boot:spring-boot-starter-security", version.ref = "spring-boot" }
 spring-boot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa", version.ref = "spring-boot" }
 spring-boot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation", version.ref = "spring-boot" }
+spring-boot-starter-artemis = { module = "org.springframework.boot:spring-boot-starter-artemis", version.ref = "spring-boot" }
 openapitools-jackson = { module = "org.openapitools:jackson-databind-nullable", version.ref = "openapitools-jackson-databind-nullable" }
 swagger-annotation = { module = "io.swagger.core.v3:swagger-annotations", version.ref = "swagger-annotation" }
 
@@ -42,6 +46,9 @@ mapstruct-processor = { module = "org.mapstruct:mapstruct-processor", version.re
 jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson-core"}
 jakarta-validation = { module = "jakarta.validation:jakarta.validation-api", version.ref = "jakarta-validation"}
 jakarta-servlet-api = { module = "jakarta.servlet:jakarta.servlet-api", version.ref = "jakarta-servlet-api"}
+jakarta-jms-api = { module = "jakarta.jms:jakarta.jms-api", version.ref = "jakarta-jms-api"}
+org-messaginghub-pooled-jms = { module = "org.messaginghub:pooled-jms", version.ref = "org-messaginghub-pooled-jms"}
+org-apache-activemq-server = { module = "org.apache.activemq:artemis-jakarta-server", version.ref = "org-apache-activemq-server"}
 
 spring-security-test = { module = "org.springframework.security:spring-security-test", version.ref = "spring-security-test" }
 spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "spring-boot" }

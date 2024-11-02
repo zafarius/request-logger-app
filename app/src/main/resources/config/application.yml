@@ -20,6 +20,15 @@ spring:
         log-base-dir: /application/data/jta
 
     enabled: true
+
+  artemis:
+    mode: EMBEDDED
+    pool:
+      enabled: true
+  jms:
+    listener:
+      concurrency: 1
+      max-concurrency: 1
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:

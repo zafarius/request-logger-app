@@ -19,10 +19,12 @@ include(
     "common:webservice",
     "common:repository-data-model",
     "common:domain",
+    "common:jms-config",
 
-    //verve domain
+    //tracker domain
     "tracker:domain",
     "tracker:repository",
     "tracker:webservice",
-    "tracker:webservice-contracts"
-)
+    "tracker:webservice-contracts",
+    "tracker:messaging"
+    )

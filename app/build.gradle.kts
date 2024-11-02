@@ -14,10 +14,12 @@ dependencies {
     implementation(project(":tracker:webservice-contracts"))
     implementation(project(":tracker:webservice"))
     implementation(project(":tracker:domain"))
+    implementation(project(":tracker:messaging"))
 
     implementation(project(":common:security"))
     implementation(project(":common:webservice"))
     implementation(project(":common:domain"))
+    implementation(project(":common:jms-config"))
 
     implementation(libs.spring.boot.starter.validation)
     implementation(libs.spring.boot.starter.data.jpa)
@@ -30,6 +32,7 @@ dependencies {
     implementation(libs.postgresql)
     implementation(libs.flyway.postgresql)
 
+    testImplementation(libs.spring.boot.starter.artemis)
     testImplementation(libs.spring.security.test)
     testImplementation(libs.junit.jupiter)
     testImplementation(libs.spring.boot.starter.test)

@@ -13,6 +13,8 @@ import app.domain.tracker.RequestService;
 import java.time.ZonedDateTime;
 import lombok.val;
 import app.webservice.contracts.tracker.VerveApi;
+import org.springframework.web.client.ResourceAccessException;
+import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
@@ -53,7 +55,12 @@ public class RequestController implements VerveApi {
             val postRequest = new PostAcceptRequest(currentRequests);
             val entity = new HttpEntity<PostAcceptRequest>(postRequest);
 
-            val response = restTemplate.exchange(endpoint, HttpMethod.POST, entity, String.class);
-            log.info("Successfully requested endpoint: {} {}", endpoint, response.getStatusCode());
+            try {
+                val response = restTemplate.exchange(endpoint, HttpMethod.POST, entity, String.class);
+                log.info("Successfully requested endpoint: {} {}", endpoint, response.getStatusCode());
+            } catch (RestClientResponseException e) {
+                log.info("Failed requesting endpoint: {} {}", endpoint, e.getStatusCode());
+                throw e;
+            }
     }
 }

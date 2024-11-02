@@ -9,31 +9,20 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":tracker:webservice-contracts"))
     implementation(project(":tracker:domain"))
 
     implementation(project(":common:domain"))
-    implementation(project(":common:security"))
     implementation(project(":common:jms-config"))
 
-    implementation(libs.spring.boot.starter.security)
+    implementation(libs.spring.boot.starter.artemis)
     implementation(libs.spring.boot.starter.validation)
     implementation(libs.spring.boot.starter.data.jpa)
-    implementation(libs.jakarta.validation)
-    implementation(libs.spring.web)
-    implementation(libs.swagger.annotation)
-    implementation(libs.jackson.databind)
-    implementation(libs.mapstruct)
-    implementation(libs.spring.boot.starter.artemis)
-    annotationProcessor(libs.mapstruct.processor)
-    compileOnly(libs.jakarta.servlet.api)
 
     testImplementation(libs.junit.jupiter)
-    testImplementation(libs.spring.security.test)
     testImplementation(libs.spring.boot.starter.test)
 }
 
-//rename jar tracker
+//rename jar file
 tasks.getByName<Jar>("jar") {
-    archiveBaseName = "tracker-webservice"
+    archiveBaseName = "tracker-jms"
 }
