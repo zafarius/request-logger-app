@@ -13,7 +13,6 @@ import app.domain.tracker.RequestService;
 import java.time.ZonedDateTime;
 import lombok.val;
 import app.webservice.contracts.tracker.VerveApi;
-import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
 
