@@ -10,7 +10,7 @@ services:
     volumes:
       - "./data/postgres:/docker-entrypoint-initdb.d"
     healthcheck:
-      test: pg_isready -U vault-user -d vault
+      test: pg_isready -U app-user -d app
     environment:
       POSTGRES_PASSWORD: "change-me"
   artemis:
@@ -32,8 +32,8 @@ services:
       SPRING_PROFILES_ACTIVE: production
       JDBC_HOST: postgresql
       JDBC_PORT: 5432
-      JDBC_DATABASE: vault
-      JDBC_USERNAME: vault-user
+      JDBC_DATABASE: app
+      JDBC_USERNAME: app-user
       JDBC_PASSWORD: vaultMaster123
       JDBC_CONNECTION_POOL_MIN: 5
       JDBC_CONNECTION_POOL_MAX: 20

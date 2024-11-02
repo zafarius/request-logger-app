@@ -8,17 +8,11 @@ spring:
       datasource:
         min-pool-size: ${JDBC_CONNECTION_POOL_MIN}
         max-pool-size: ${JDBC_CONNECTION_POOL_MAX}
-      connectionfactory:
-        min-pool-size:  ${JDBC_CONNECTION_POOL_MIN}
-        max-pool-size: ${JDBC_CONNECTION_POOL_MAX}
       properties:
         enable-logging: false
         transaction-manager-unique-name: TRXM_APP_XA
         log-base-name: APP_XA
         log-base-dir: /tmp/jta
-        max-timeout: 30000
-        default-jta-timeout: 30000
-
     enabled: true
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
@@ -41,5 +35,5 @@ logging:
     org.springframework.web: info
     org.springframework.transaction: error
     org.apache.activemq: error
-    com.atomikos.jdbc.AtomikosConnectionProxy: error
+    com.atomikos: error
     org.hibernate.jpa.internal.util.LogHelper: info
