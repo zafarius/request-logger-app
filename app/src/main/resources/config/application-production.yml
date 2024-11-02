@@ -8,10 +8,16 @@ spring:
       datasource:
         min-pool-size: ${JDBC_CONNECTION_POOL_MIN}
         max-pool-size: ${JDBC_CONNECTION_POOL_MAX}
+      connectionfactory:
+        min-pool-size:  ${JDBC_CONNECTION_POOL_MIN}
+        max-pool-size: ${JDBC_CONNECTION_POOL_MAX}
       properties:
         enable-logging: false
-        log-base-name: VAULT_XA
+        transaction-manager-unique-name: TRXM_APP_XA
+        log-base-name: APP_XA
         log-base-dir: /tmp/jta
+        max-timeout: 30000
+        default-jta-timeout: 30000
 
     enabled: true
   jpa:
