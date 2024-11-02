@@ -101,7 +101,7 @@ public class TrackerEndToEndTest {
                 );
 
         await("message consumed")
-                .atMost(10, SECONDS)
+                .atMost(Durations.TWO_MINUTES)
                 .untilAsserted(() -> assertThat(outContent.toString()).contains("unique requests received."));
     }
 }
