@@ -1,7 +1,7 @@
 # Verve - Tech Challenge 
 ### Quick start
 You can start the application using `docker compose`, which will launch the PostgreSQL database, artemis and the app. 
-1. ```cd docker/docker-compose/ && docker compose up```
+1. ```cd docker/docker-compose/ && docker compose up app```
 
 The task was both intriguing and challenging. For example, it involved developing an algorithm that identifies unique requests based on their IDs for each minute.
 
