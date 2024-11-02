@@ -1,5 +1,6 @@
 package app.domain.tracker;
 
+import app.messaging.tracker.CountReceiver;
 import app.messaging.tracker.TrackerJob;
 import lombok.val;
 import org.awaitility.Durations;
@@ -14,8 +15,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static java.util.concurrent.TimeUnit.SECONDS;
-import static org.assertj.core.api.Assertions.assertThat;
+//import static java.util.concurrent.TimeUnit.SECONDS;
+//import static org.assertj.core.api.Assertions.assertThat;
 import static org.awaitility.Awaitility.await;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.atLeast;
@@ -37,6 +38,9 @@ public class TrackerEndToEndTest {
 
     @SpyBean
     private RequestService requestService;
+
+    @SpyBean
+    private CountReceiver countReceiver;
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
@@ -102,6 +106,6 @@ public class TrackerEndToEndTest {
 
         await("message consumed")
                 .atMost(Durations.TWO_MINUTES)
-                .untilAsserted(() -> assertThat(outContent.toString()).contains("unique requests received."));
+                .untilAsserted(() -> verify(countReceiver, times(1)).receive(any()));
     }
 }
