@@ -2,6 +2,7 @@
 ### Quick start
 You can start the application using `docker compose`, which will launch the PostgreSQL database, artemis and the app. 
 1. ```cd docker/docker-compose/ && docker compose up app```
+2. ```curl localhost:8080/verve/accept?id=1 or curl "localhost:8080/verve/accept?id=1&endpoint=http://localhost:8080/verve/accept"```
 
 The task was both intriguing and challenging. For example, it involved developing an algorithm that identifies unique requests based on their IDs for each minute.
 
